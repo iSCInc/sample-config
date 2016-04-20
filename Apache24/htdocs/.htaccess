@@ -3,5 +3,8 @@
 Options +FollowSymLinks
 RewriteEngine On
 
+RewriteCond %{HTTPS} off
+
 RewriteRule ^(.*)$ /w/index.php?title=$1 [PT,L,QSA]
 RewriteRule ^.*$ /w/index.php [L,QSA]
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
